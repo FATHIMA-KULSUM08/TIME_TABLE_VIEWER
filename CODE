@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIMETABLE VIEWER</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #A8D1D1; /* Light background color */
+            text-transform: uppercase; /* Uppercase text */
+        }
+        .timetable-image {
+            display: none;
+            width: 100%;
+            max-width: 794px; /* A4 size width in pixels */
+            height: 1123px; /* A4 size height in pixels */
+            margin: 20px auto;
+            border: 5px solid black; /* Black frame */
+            padding: 10px; /* Space between image and frame */
+            background-color: white; /* White background for the image frame */
+        }
+        h1 {
+            text-transform: uppercase; /* Uppercase heading */
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">TIMETABLE VIEWER</h1>
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-3">
+                <select class="form-control" id="year-select">
+                    <option value="" disabled selected>SELECT YEAR</option>
+                    <option value="year1">1ST YEAR</option>
+                    <option value="year2">2ND YEAR</option>
+                    <option value="year3">3RD YEAR</option>
+                    <option value="year4">4TH YEAR</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <select class="form-control" id="branch-select" disabled>
+                    <option value="" disabled selected>SELECT BRANCH</option>
+                    <option value="CSE">CSE</option>
+                    <option value="CAI">CAI</option>
+                    <option value="IOT">IOT</option>
+                    <option value="DS">DS</option>
+                    <option value="ECE">ECE</option>
+                    <option value="MECH">MECH</option>
+                    <option value="CIVIL">CIVIL</option>
+                    <option value="EEE">EEE</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <select class="form-control" id="section-select" disabled>
+                    <option value="" disabled selected>SELECT SECTION</option>
+                </select>
+            </div>
+        </div>
+        <div class="text-center">
+            <img id="timetable-image" class="timetable-image" alt="TIMETABLE">
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        const timetables = {
+            year1: {
+                CSE: { A: 'images/year1/CSE_A.jpg', B: 'images/year1/CSE_B.jpg' },
+                CAI: { A: 'images/year1/CAI_A.jpg', B: 'images/year1/CAI_B.jpg' },
+                IOT: { A: 'images/year1/IOT_A.jpg', B: 'images/year1/IOT_B.jpg' },
+                DS: { A: 'images/year1/DS_A.jpg', B: 'images/year1/DS_B.jpg' },
+                ECE: { A: 'images/year1/ECE_A.jpg', B: 'images/year1/ECE_B.jpg' },
+                MECH: { A: 'images/year1/MECH_A.jpg', B: 'images/year1/MECH_B.jpg' },
+                CIVIL: { A: 'images/year1/CIVIL_A.jpg', B: 'images/year1/CIVIL_B.jpg' },
+                EEE: { A: 'images/year1/EEE_A.jpg', B: 'images/year1/EEE_B.jpg' },
+            },
+            year2: {
+                CSE: { A: 'images/year2/CSE_A.jpg', B: 'images/year2/CSE_B.jpg' },
+                CAI: { A: 'images/year2/CAI_A.jpg', B: 'images/year2/CAI_B.jpg' },
+                IOT: { A: 'images/year2/IOT_A.jpg', B: 'images/year2/IOT_B.jpg' },
+                DS: { A: 'images/year2/DS_A.jpg', B: 'images/year2/DS_B.jpg' },
+                ECE: { A: 'images/year2/ECE_A.jpg', B: 'images/year2/ECE_B.jpg' },
+                MECH: { A: 'images/year2/MECH_A.jpg', B: 'images/year2/MECH_B.jpg' },
+                CIVIL: { A: 'images/year2/CIVIL_A.jpg', B: 'images/year2/CIVIL_B.jpg' },
+                EEE: { A: 'images/year2/EEE_A.jpg', B: 'images/year2/EEE_B.jpg' },
+            },
+            year3: {
+                CSE: { A: 'images/year3/CSE_A.jpg', B: 'images/year3/CSE_B.jpg' },
+                CAI: { A: 'images/year3/CAI_A.jpg', B: 'images/year3/CAI_B.jpg' },
+                IOT: { A: 'images/year3/IOT_A.jpg', B: 'images/year3/IOT_B.jpg' },
+                DS: { A: 'images/year3/DS_A.jpg', B: 'images/year3/DS_B.jpg' },
+                ECE: { A: 'images/year3/ECE_A.jpg', B: 'images/year3/ECE_B.jpg' },
+                MECH: { A: 'images/year3/MECH_A.jpg', B: 'images/year3/MECH_B.jpg' },
+                CIVIL: { A: 'images/year3/CIVIL_A.jpg', B: 'images/year3/CIVIL_B.jpg' },
+                EEE: { A: 'images/year3/EEE_A.jpg', B: 'images/year3/EEE_B.jpg' },
+            },
+            year4: {
+                CSE: { A: 'images/year4/CSE_A.jpg', B: 'images/year4/CSE_B.jpg' },
+                CAI: { A: 'images/year4/CAI_A.jpg', B: 'images/year4/CAI_B.jpg' },
+                IOT: { A: 'images/year4/IOT_A.jpg', B: 'images/year4/IOT_B.jpg' },
+                DS: { A: 'images/year4/DS_A.jpg', B: 'images/year4/DS_B.jpg' },
+                ECE: { A: 'images/year4/ECE_A.jpg', B: 'images/year4/ECE_B.jpg' },
+                MECH: { A: 'images/year4/MECH_A.jpg', B: 'images/year4/MECH_B.jpg' },
+                CIVIL: { A: 'images/year4/CIVIL_A.jpg', B: 'images/year4/CIVIL_B.jpg' },
+                EEE: { A: 'images/year4/EEE_A.jpg', B: 'images/year4/EEE_B.jpg' },
+            }
+        };
+
+        $('#year-select').change(function() {
+            $('#branch-select').prop('disabled', false);
+            $('#section-select').empty().append('<option value="" disabled selected>SELECT SECTION</option>').prop('disabled', true);
+            $('#branch-select').prop('selectedIndex', 0);
+            $('#timetable-image').hide();
+        });
+
+        $('#branch-select').change(function() {
+            const selectedYear = $('#year-select').val();
+            const selectedBranch = $(this).val();
+            const sections = Object.keys(timetables[selectedYear][selectedBranch]);
+
+            $('#section-select').empty().append('<option value="" disabled selected>SELECT SECTION</option>');
+            sections.forEach(section => {
+                $('#section-select').append(new Option(section, section));
+            });
+            $('#section-select').prop('disabled', false);
+            $('#timetable-image').hide();
+        });
+
+        $('#section-select').change(function() {
+            const selectedYear = $('#year-select').val();
+            const selectedBranch = $('#branch-select').val();
+            const selectedSection = $(this).val();
+            const timetableSrc = timetables[selectedYear][selectedBranch][selectedSection];
+
+            $('#timetable-image').attr('src', timetableSrc).show();
+        });
+    </script>
+</body>
+</html>
