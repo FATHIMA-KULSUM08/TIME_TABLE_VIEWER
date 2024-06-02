@@ -1,0 +1,17 @@
+# TIME_TABLE_VIEWER
+An interactive and user-friendly Timetable Viewer website designed for students to easily access their class timetables. Leveraging modern web technologies such as HTML, CSS, and Bootstrap, this platform provides a responsive and visually appealing interface.
+Features
+•	Interactive Timetable Viewer: Users can select their year, branch, and section to view the corresponding timetable.
+•	User-Friendly Design: Responsive and visually appealing interface designed using HTML, CSS, and Bootstrap.
+•	A4 Frame Size: Timetables are displayed within a frame sized to match A4 dimensions for easy readability.
+•	Light Background Color: The page features a light background color (#A8D1D1) for a pleasant viewing experience.
+•	Uppercase Text: All text on the page is displayed in uppercase letters for clear and uniform presentation.
+•	Dynamic Content Loading: Timetables are dynamically loaded based on user selections.
+•	Extensible Structure: Easily we can add more years, branches, and sections as needed.
+•	Cross-Browser Compatibility: Ensures a consistent user experience across different web browsers.
+Uses
+1.	Easy Access to Timetables: Quickly and easily access class timetables without navigating through multiple pages or documents.
+2.	Consistent Presentation: Clear and consistent presentation of timetables with A4-sized frames and uppercase text.
+3.	Responsive Design: Accessible on various devices, including desktops, tablets, and mobile phones.
+4.	User-Centric Navigation: Simple dropdown menus for year, branch, and section selection.
+5.	Improved Efficiency: Centralized platform for viewing timetables saves time for students and faculty.
